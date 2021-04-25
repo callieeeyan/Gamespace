@@ -117,27 +117,34 @@
 					<div class="row">
 						<div class="col-md-9">
 							<ul class="contact-info-list">
-								<li><div class="cf-left">User Name</div><div class="cf-right"> Need to be changed</div></li>
-								<li><div class="cf-left">Phone</div><div class="cf-right">Need to be changed</div></li>
-								<li><div class="cf-left">E-mail</div><div class="cf-right">Need to be changed</div></li>
+								<li><div class="cf-left">User Name:</div><div class="cf-right"> Need to be changed</div></li>
+								<li><div class="cf-left">Phone:</div><div class="cf-right">Need to be changed</div></li>
+								<li><div class="cf-left">E-mail:</div><div class="cf-right">Need to be changed</div></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-8">
 					<div class="contact-form-warp">
-						<h4 class="comment-title">Find Your Game Recommendations</h4>
-						<form class="comment-form">
+						<h4 class="comment-title">Edit your personal information:</h4>
+						<form class="comment-form" action="http://127.0.0.1:8000/process_get" method="GET">
 							<div class="row">
-								<div class="col-md-6">
-									<input type="text" placeholder="Name">
+								<div class="col-md-4">
+									<input type="text" name = "user_name" placeholder="User Name" >
 								</div>
-								<div class="col-md-6">
-									<input type="email" placeholder="Email">
+								<div class="col-md-4">
+									<input type="email" name = "email" placeholder="E-mail">
 								</div>
-								<div class="col-lg-12">
-									<input type="text" placeholder="Subject">
-									<textarea placeholder="Message"></textarea>
+								<div class="col-lg-4">
+									<input type="text" name = "phone" placeholder="Phone">
+								</div>
+								<button class="site-btn btn-sm">Edit</button>
+							</div>
+								<div class="row">
+									<div class="col-md-9">
+										<ul class="contact-info-list">
+								<h4 class="comment-title">Preference:</h4>
+									<textarea placeholder="For Recommendation"></textarea>
 									<button class="site-btn btn-sm">Send</button>
 								</div>
 							</div>
