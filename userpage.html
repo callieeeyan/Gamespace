@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 
 
-
 	<!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -117,9 +116,9 @@
 					<div class="row">
 						<div class="col-md-9">
 							<ul class="contact-info-list">
-								<li><div class="cf-left">User Name:</div><div class="cf-right"> Need to be changed</div></li>
-								<li><div class="cf-left">Phone:</div><div class="cf-right">Need to be changed</div></li>
-								<li><div class="cf-left">E-mail:</div><div class="cf-right">Need to be changed</div></li>
+								<li><div class="cf-left">User Name:</div><div class="cf-right" id='username'> Need to be changed</div></li>
+								<li><div class="cf-left">Phone:</div><div class="cf-right" id='phone'>Need to be changed</div></li>
+								<li><div class="cf-left">E-mail:</div><div class="cf-right" id='email'>Need to be changed</div></li>
 							</ul>
 						</div>
 					</div>
@@ -127,18 +126,18 @@
 				<div class="col-lg-8">
 					<div class="contact-form-warp">
 						<h4 class="comment-title">Edit your personal information:</h4>
-						<form class="comment-form" action="http://127.0.0.1:8000/process_get" method="GET">
+						<form class="comment-form" >
 							<div class="row">
 								<div class="col-md-4">
-									<input type="text" name = "user_name" placeholder="User Name" >
+									<input type="text" name = "user_name" placeholder="User Name" id= "edit_user_name">
 								</div>
 								<div class="col-md-4">
-									<input type="email" name = "email" placeholder="E-mail">
+									<input type="email" name = "email" placeholder="E-mail" id= "edit_user_email">
 								</div>
 								<div class="col-lg-4">
-									<input type="text" name = "phone" placeholder="Phone">
+									<input type="text" name = "phone" placeholder="Phone" id= "edit_user_phone">
 								</div>
-								<button class="site-btn btn-sm">Edit</button>
+								<button id="edit_profile" class="site-btn btn-sm">Edit</button>
 							</div>
 								<div class="row">
 									<div class="col-md-9">
@@ -267,7 +266,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/jquery.marquee.min.js"></script>
 	<script src="js/main.js"></script>
-
+	<script src="request.js"></script>
 
 	<!-- load for map -->
 	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWTIlluowDL-X4HbYQt3aDw_oi2JP0Krc&sensor=false"></script>
