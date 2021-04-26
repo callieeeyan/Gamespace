@@ -1228,7 +1228,7 @@ ol {
 }
 
 /*-----------------
-  Contact page
+   search page
 --------------------*/
 
 .map {
@@ -1237,17 +1237,17 @@ ol {
 	margin-bottom: 90px;
 }
 
-.contact-info-list {
+. search-info-list {
 	padding-top: 55px;
 	padding-bottom: 20px;
 	list-style: none;
 }
 
-.contact-info-list li {
+. search-info-list li {
 	margin-bottom: 30px;
 }
 
-.contact-info-list .cf-left {
+. search-info-list .cf-left {
 	width: 95px;
 	float: left;
 	font-size: 16px;
@@ -1255,7 +1255,7 @@ ol {
 	color: #ffb320;
 }
 
-.contact-info-list .cf-right {
+. search-info-list .cf-right {
 	color: #878787;
 	font-size: 15px;
 	padding-left: 100px;

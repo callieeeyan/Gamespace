@@ -53,7 +53,7 @@ apigClientFactory.newClient = function (config) {
 
     
     // extract endpoint and path from url
-    var invokeUrl = 'https://3j2eiij591.execute-api.us-east-1.amazonaws.com/v1';
+    var invokeUrl = 'https://3j2eiij591.execute-api.us-east-1.amazonaws.com/v2';
     var endpoint = /(^https?:\/\/[^\/]+)/g.exec(invokeUrl)[1];
     var pathComponent = invokeUrl.substring(endpoint.length);
 
@@ -83,57 +83,93 @@ apigClientFactory.newClient = function (config) {
     
     
     
-    apigClient.rootGet = function (params, body, additionalParams) {
+    apigClient.postforumPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['subject', 'post_detail'], ['body']);
+        
+        var postforumPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/postforum').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['subject', 'post_detail']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(postforumPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.postforumOptions = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
         apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
         
-        var rootGetRequest = {
-            verb: 'get'.toUpperCase(),
-            path: pathComponent + uritemplate('/').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+        var postforumOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/postforum').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body
         };
         
         
-        return apiGatewayClient.makeRequest(rootGetRequest, authType, additionalParams, config.apiKey);
+        return apiGatewayClient.makeRequest(postforumOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
     
-    apigClient.rootPost = function (params, body, additionalParams) {
+    apigClient.userinfoGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var userinfoGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/userinfo').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(userinfoGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.userinfoPost = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
         apiGateway.core.utils.assertParametersDefined(params, ['phone', 'username', 'email'], ['body']);
         
-        var rootPostRequest = {
+        var userinfoPostRequest = {
             verb: 'post'.toUpperCase(),
-            path: pathComponent + uritemplate('/').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            path: pathComponent + uritemplate('/userinfo').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, ['phone', 'username', 'email']),
             body: body
         };
-        console.log("i'm rootPost")
         
-        return apiGatewayClient.makeRequest(rootPostRequest, authType, additionalParams, config.apiKey);
+        
+        return apiGatewayClient.makeRequest(userinfoPostRequest, authType, additionalParams, config.apiKey);
     };
     
     
-    apigClient.rootOptions = function (params, body, additionalParams) {
+    apigClient.userinfoOptions = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
         apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
         
-        var rootOptionsRequest = {
+        var userinfoOptionsRequest = {
             verb: 'options'.toUpperCase(),
-            path: pathComponent + uritemplate('/').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            path: pathComponent + uritemplate('/userinfo').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body
         };
         
         
-        return apiGatewayClient.makeRequest(rootOptionsRequest, authType, additionalParams, config.apiKey);
+        return apiGatewayClient.makeRequest(userinfoOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
 
