@@ -44,5 +44,13 @@ const load = async () => {
     document.getElementById('phone').innerHTML=res.user_phone;
 
 }
-
+document.getElementById('add_post').onclick = async () => {
+    event.preventDefault();
+    new_post = document.getElementById('post_thread').value;
+    data = {
+        new_post: new_post,
+    }
+    res = await postUser(data);
+    document.getElementById('all_post').innerHTML=res.new_post;
+}
 load();
