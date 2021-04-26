@@ -5499,7 +5499,7 @@ typeof navigator === "object" && (function (global, factory) {
           // javascript
           e = doc.createElement('script');
           e.src = path;
-          e.async = async === undefined ? true : async;
+          e.async = async === undefined ? False : async;
         }
 
         e.onload = e.onerror = e.onbeforeload = function (ev) {

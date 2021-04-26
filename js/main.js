@@ -10,9 +10,9 @@
 
 
 $(window).on('load', function() {
-	/*------------------
-		Preloder
-	--------------------*/
+	// ------------------
+	// 	Preloder
+	// --------------------
 	$(".loader").fadeOut(); 
 	$("#preloder").delay(400).fadeOut("slow");
 
