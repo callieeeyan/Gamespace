@@ -115,9 +115,10 @@
 								<input id = "searchinfo" type="text" placeholder="find some posts">
 								<button onclick="searchpost()" class="site-btn btn-sm" type="button">Search</button>
 							</div>
-							<ul id = "forumsection1" class="community-post-list">
-							</ul>
+							
 						</div>
+						<ul id = "forumsection1" class="community-post-list">
+						</ul>
 					</form>
 				</div>
 				<div class="row">
@@ -126,7 +127,6 @@
 					</div>
 				</div>
 				<ul id = "forumsection" class="community-post-list">
-					
 				</ul>
 			</div>
 		</div>
@@ -218,12 +218,12 @@
 			document.getElementById("searchinfo").value = "";
 		}
 
-		function showtext3(res){
+		function showtext3(result){
 			// var newDiv = document.getElementById("text");
-			console.log("@showtext, result is",res);
-			var result = JSON.parse(res);
+			console.log("@showtext, result is",result);
+			// var result = JSON.parse(res);
 			console.log("@after parse",result);
-
+			var insertlocation = document.getElementById('forumsection1');
 			for (i=0; i<result.length; i++){
 				console.log("@for loop parse",result[i]);
 				var email = result[i].email;
@@ -232,28 +232,18 @@
 				var subject = result[i].subject;
 			    var detail = result[i].detail;
 			    var time = result[i].time;
-
-			    var insertlocation = document.getElementById('forumsection1');
-
-				for (j=0; j<subject.length; j++){
-
-					var subject_temp = subject[j];
-					var detail_temp = detail[j];
-					var time_temp = time[j];
-					console.log("subject_temp",subject_temp)
-
-					var str = '<li >\
-								<div class="community-post">\
-									<div class="post-content">\
-										<h5 ">'+ subject_temp + '<span>'+ time_temp  +'</span></h5>\
-										<div class="post-date"> '+ name+ '</div>\
-										<p> <a href="sendemail.html" onclick="sendemail()">' + email+ '</a></p>\
-										<p>'+ detail_temp + ' </p>\
-									</div>\
-								</div>\
-							</li>';
-					insertlocation.insertAdjacentHTML('beforeend', str);
-				}
+			    console.log("email i",email);
+		    	var str = '<li >\
+					<div class="community-post">\
+						<div class="post-content">\
+							<h5 ">'+ subject + '<span>'+ time  +'</span></h5>\
+							<div class="post-date"> '+ name+ '</div>\
+							<p> <a href="sendemail.html" onclick="sendemail()">' + email+ '</a></p>\
+							<p>'+ detail + ' </p>\
+						</div>\
+					</div>\
+				</li>';
+				insertlocation.insertAdjacentHTML('beforeend', str);
 			}
 		}
 
