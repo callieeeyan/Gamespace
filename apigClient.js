@@ -83,6 +83,60 @@ apigClientFactory.newClient = function (config) {
     
     
     
+    apigClient.forumpageGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var forumpageGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/forumpage').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(forumpageGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.forumpagePost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['seachinfo'], ['body']);
+        
+        var forumpagePostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/forumpage').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['seachinfo']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(forumpagePostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.forumpageOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var forumpageOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/forumpage').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(forumpageOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.postforumPost = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
@@ -119,6 +173,60 @@ apigClientFactory.newClient = function (config) {
     };
     
     
+    apigClient.searchGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['tag', 'gamename'], ['body']);
+        
+        var searchGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/search').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['tag', 'gamename']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(searchGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.searchPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['tag'], ['body']);
+        
+        var searchPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/search').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['tag']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(searchPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.searchOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var searchOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/search').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(searchOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.userinfoGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
@@ -140,13 +248,13 @@ apigClientFactory.newClient = function (config) {
     apigClient.userinfoPost = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
-        apiGateway.core.utils.assertParametersDefined(params, ['phone', 'username', 'email'], ['body']);
+        apiGateway.core.utils.assertParametersDefined(params, ['game2', 'game1', 'username', 'email', 'phone', 'game3'], ['body']);
         
         var userinfoPostRequest = {
             verb: 'post'.toUpperCase(),
             path: pathComponent + uritemplate('/userinfo').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['phone', 'username', 'email']),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['game2', 'game1', 'username', 'email', 'phone', 'game3']),
             body: body
         };
         

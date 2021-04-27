@@ -6,7 +6,7 @@
     <meta name="description" content="GameSpace">
     <meta name="keywords" content="Game">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <body onload="loaduser_forum()">
+    <!-- <body onload="loaduser_forum()"> -->
     <link href="img/favicon.ico" rel="shortcut icon"/>
 
     <!-- Google Fonts -->
@@ -103,36 +103,31 @@
 	<!-- Page info section -->
 
 
-<!-- Page section -->
+	<!-- Page section -->
 	<section class="page-section community-page set-bg" data-setbg="img/community-bg.jpg">
 		<div class="community-warp spad">
 			<div class="container">
-				<div class="search-form-warp">
-					<h4 class="comment-title">Search post you may like:</h4>
-					<form class="comment-form">
-						<div class="row">
-							<div class="col-lg-12">
-								<input id = "searchinfo" type="text" placeholder="find some posts">
-								<button onclick="searchpost()" class="site-btn btn-sm" type="button">Search</button>
-							</div>
-							<ul id = "forumsection1" class="community-post-list">
-							</ul>
-						</div>
-					</form>
-				</div>
 				<div class="row">
 					<div class="col-md-6">
-						<h3 class="community-top-title" style="margin-top: 200px;">All Posts:</h3>
+						<h3 class="community-top-title">All Posts:</h3>
+					</div>
+					<div class="col-md-6 text-lg-right">
+						<form class="community-filter">
+							<label for="fdf5">Show</label>
+							<select id="fdf5">
+								<option value="#">Everything</option>
+								<option value="#">Everything</option>
+							</select>
+						</form>
 					</div>
 				</div>
-				<ul id = "forumsection" class="community-post-list">
+				<ul  class="community-post-list">
 					
 				</ul>
 			</div>
 		</div>
 	</section>
 	<!-- Page section end -->
-
 
 
 	<!-- Footer top section -->
@@ -149,6 +144,9 @@
 			</div>
 		</div>
 	</section>
+
+	<div id = "f1" >
+	</div>
 	<!-- Footer top section end -->
 
 	
@@ -175,87 +173,7 @@
 	<script src="js/main.js"></script>
 	<script src="apigClient.js"></script>
 	<script>
-		function loaduser_forum() {		
-			var apigClient = apigClientFactory.newClient({apiKey: "hpUV56GBup3D38aMb236J89YtbiZvRqD5FsIkibC"});
-			var params = {};
-			var body = {};
-			var additionalParams = {headers: {'Content-Type':"application/json"}};
-
-			apigClient.forumpageGet(params, body, additionalParams)
-			    .then(function (result) {
-			      console.log('@apigClient_forumpageGet success');
-			      console.log(result);
-			      showtext2(result.data.body);
-			    }).catch(function (result) {
-			      console.log("failed......");
-			      console.log(result);
-			    });
-
-		}
-
-		function searchpost() {		
-			var search_input = document.getElementById("searchinfo").value;	
-			
-			console.log("search_input",search_input);
-			var apigClient = apigClientFactory.newClient({apiKey: "hpUV56GBup3D38aMb236J89YtbiZvRqD5FsIkibC"});
-			var params = {
-				"seachinfo":search_input
-			};
-			var body = {
-				"seachinfo":search_input
-			};
-			var additionalParams = {headers: {'Content-Type':"application/json"}, queryParams: {"seachinfo":search_input}};
-
-			apigClient.forumpagePost(params, body, additionalParams)
-			    .then(function (result) {
-			      console.log('@apigClient_searchGet success');
-			      console.log(result);
-			      showtext3(result.data.body);
-			    }).catch(function (result) {
-			      console.log("failed..searchGet.");
-			      console.log(result);
-			    });
-			document.getElementById("searchinfo").value = "";
-		}
-
-		function showtext3(res){
-			// var newDiv = document.getElementById("text");
-			console.log("@showtext, result is",res);
-			var result = JSON.parse(res);
-			console.log("@after parse",result);
-
-			for (i=0; i<result.length; i++){
-				console.log("@for loop parse",result[i]);
-				var email = result[i].email;
-			    var name = result[i].username;
-			    var number = result[i].phone;
-				var subject = result[i].subject;
-			    var detail = result[i].detail;
-			    var time = result[i].time;
-
-			    var insertlocation = document.getElementById('forumsection1');
-
-				for (j=0; j<subject.length; j++){
-
-					var subject_temp = subject[j];
-					var detail_temp = detail[j];
-					var time_temp = time[j];
-					console.log("subject_temp",subject_temp)
-
-					var str = '<li >\
-								<div class="community-post">\
-									<div class="post-content">\
-										<h5 ">'+ subject_temp + '<span>'+ time_temp  +'</span></h5>\
-										<div class="post-date"> '+ name+ '</div>\
-										<p> <a href="sendemail.html" onclick="sendemail()">' + email+ '</a></p>\
-										<p>'+ detail_temp + ' </p>\
-									</div>\
-								</div>\
-							</li>';
-					insertlocation.insertAdjacentHTML('beforeend', str);
-				}
-			}
-		}
+		
 
 		function showtext2(res){
 			// var newDiv = document.getElementById("text");
@@ -286,7 +204,7 @@
 									<div class="post-content">\
 										<h5 ">'+ subject_temp + '<span>'+ time_temp  +'</span></h5>\
 										<div class="post-date"> '+ name+ '</div>\
-										<p> <a href="sendemail.html" onclick="sendemail()">' + email+ '</a></p>\
+										<p> <a href=email>' + email+ '</a></p>\
 										<p>'+ detail_temp + ' </p>\
 									</div>\
 								</div>\
@@ -294,6 +212,11 @@
 					insertlocation.insertAdjacentHTML('beforeend', str);
 				}
 			}
+			// console.log("as",res[]);
+			
+			// console.log("subject",subject[0])
+
+			
 		}
 	</script>
     </body>
