@@ -222,10 +222,11 @@
 		  //   	var str1 = '<h8>' + name + '</h8>';
 				// var str2 = '<h8>' + img + '</h8>';
  			// 	var str3 = '<h8>' + URL + '</h8>';
- 				var str1 = '<p>' + str2 + ' '+ j +':'+ '&emsp;'+ '<a href='+ URL +'>' +name + '<br> </a> </p>'+ '<p> Price: '+ Price+'</p>'+ '<p> <a href=' + img +'>' + "Click to see image" + '<br> </a> </p>' +'<p> Review: ' + Reviews+' </p>' + '<p> <br> </p>';
+ 				var str1 = '<p>' + str2 + ' '+ j +':'+ '&emsp;'+ '<a href='+ URL +'target=\"_blank\">' +name + '<br> </a> </p>'+ '<p> Price: '+ Price+'</p>'+ '<p> <a href=' + img +'>' + "Click to see image" + '<br> </a> </p>' +'<p> Review: ' + Reviews+' </p>' + '<p> <br> </p>';
+ 				var str2 = '<a href='+ URL +'target=\"_blank\">' +name + '<br> </a>';
 				// var str1 = '<p>' + '<br> </p>' + '<p>'+ name + '<br>  </p>' +'<p>' + img + '<br>  </p>'+'<p>' + URL + ' <br> </p>';
 
-				insert_loc.insertAdjacentHTML('beforeend', str1);
+				insert_loc.insertAdjacentHTML('beforeend', str2);
 				// insert_loc.insertAdjacentHTML('afterend', str2);
 				// insert_loc.insertAdjacentHTML('afterend', str3);
 			}

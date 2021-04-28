@@ -283,7 +283,10 @@
 			var body = {
 			};
 			var additionalParams = {headers: {'Content-Type':"application/json"}};
-
+			var insert_loc = document.getElementById('result');
+		    var str3 = '<h4  class="comment-title">Your Recommendation Result:</h4>';
+			insert_loc.insertAdjacentHTML('beforebegin', str3);
+			
 			apigClient.recommendationGet(params, body, additionalParams)
 			    .then(function (result) {
 			      console.log('@apigClient_searchGet success');
@@ -293,9 +296,7 @@
 			      console.log("failed..searchGet.");
 			      console.log(result);
 			    });
-			var insert_loc = document.getElementById('result');
-		    var str2 = '<h4  class="comment-title">Your Recommendation Result:</h4>';
-			insert_loc.insertAdjacentHTML('beforebegin', str2);
+			
 			// document.getElementById("search_input").value = "";
 		}
 
@@ -308,6 +309,7 @@
 			
 
 		    for (i=0; i<result.length; i++){
+		    	// insert_loc.insertAdjacentHTML('beforebegin', str2);
 		    	console.log("@,",result[i]);
 		    	var name = result[i].Name;
 		    	var img = result[i].Image;
@@ -320,7 +322,7 @@
 		  //   	var str1 = '<h8>' + name + '</h8>';
 				// var str2 = '<h8>' + img + '</h8>';
  			// 	var str3 = '<h8>' + URL + '</h8>';
- 				var str1 = '<p>' + str2 + ' '+ j +':'+ '&emsp;'+ '<a href='+ URL +'>' +name + '<br> </a> </p>'+ '<p> Price: '+ Price+'</p>'+ '<p> <a href=' + img +'>' + "Click to see image" + '<br> </a> </p>' +'<p> Reviews: ' + Review+' </p>' + '<p> <br> </p>';
+ 				var str1 = '<p>' + str2 + ' '+ j +':'+ '&emsp;'+ '<a href='+ URL +'>' +name + '<br> </a> </p>'+ '<p> Price: '+ Price+'</p>'+ '<p> <a href=' + img +'>' + "Click to see image" + '<br> </a> </p>' +'<p> Review: ' + Reviews+' </p>' + '<p> <br> </p>';
 				// var str1 = '<p>' + '<br> </p>' + '<p>'+ name + '<br>  </p>' +'<p>' + img + '<br>  </p>'+'<p>' + URL + ' <br> </p>';
 
 				insert_loc.insertAdjacentHTML('beforeend', str1);
