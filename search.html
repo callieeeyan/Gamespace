@@ -111,7 +111,7 @@
 						<form class="comment-form">
 							<div class="row">
 								<div class="col-lg-12">
-									<input id = "search_input" type="text" placeholder="find some games by tag...">
+									<input id = "search_input" type="text" placeholder="find some games by tag...  Ex: Singleplayer, Action, Multiplayer, Adventure, Simulation, Casual, Open World">
 									<!-- <button onclick="search()" type="button" class="site-btn btn-sm">Search By Tag</button> -->
 								</div>
 							</div>
@@ -214,12 +214,15 @@
 		    	var name = result[i].Name;
 		    	var img = result[i].Image;
 		    	var URL = result[i].URL;
+		    	var Price = result[i].Price;
+		    	var Reviews = result[i].Reviews;
+
 		    	var j = i+1;
 		    	console.log("name", name);
 		  //   	var str1 = '<h8>' + name + '</h8>';
 				// var str2 = '<h8>' + img + '</h8>';
  			// 	var str3 = '<h8>' + URL + '</h8>';
- 				var str1 = '<p>' + str2 + " "+ j + '<br> </p>' + '<p> <a href='+ URL +'>' +name + '<br> </a> </p>' +'<p> <a href=' + img +'>' + "Click to see image" + '<br> </a> </p>';
+ 				var str1 = '<p>' + str2 + ' '+ j +':'+ '&emsp;'+ '<a href='+ URL +'>' +name + '<br> </a> </p>'+ '<p> Price: '+ Price+'</p>'+ '<p> <a href=' + img +'>' + "Click to see image" + '<br> </a> </p>' +'<p> Reviews: ' + Reviews+' </p>' + '<p> <br> </p>';
 				// var str1 = '<p>' + '<br> </p>' + '<p>'+ name + '<br>  </p>' +'<p>' + img + '<br>  </p>'+'<p>' + URL + ' <br> </p>';
 
 				insert_loc.insertAdjacentHTML('beforeend', str1);

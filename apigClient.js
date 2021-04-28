@@ -83,6 +83,42 @@ apigClientFactory.newClient = function (config) {
     
     
     
+    apigClient.contactothersPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['email'], ['body']);
+        
+        var contactothersPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/contactothers').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['email']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(contactothersPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.contactothersOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var contactothersOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/contactothers').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(contactothersOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.forumpageGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         

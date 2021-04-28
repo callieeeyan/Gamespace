@@ -1,4 +1,6 @@
 
+
+
 function loaduser() {		
 	var apigClient = apigClientFactory.newClient({apiKey: "hpUV56GBup3D38aMb236J89YtbiZvRqD5FsIkibC"});
 	var params = {};
@@ -161,21 +163,3 @@ function uploadPost() {
 }
 
 
-function sendemail() {		
-			// var apigClient = apigClientFactory.newClient({apiKey: "hpUV56GBup3D38aMb236J89YtbiZvRqD5FsIkibC"});
-			// var params = {};
-			// var body = {};
-			// var additionalParams = {headers: {'Content-Type':"application/json"}};
-
-			// apigClient.forumpageGet(params, body, additionalParams)
-			//     .then(function (result) {
-			//       console.log('@apigClient_forumpageGet success');
-			//       console.log(result);
-			//       showtext2(result.data.body);
-			//     }).catch(function (result) {
-			//       console.log("failed......");
-			//       console.log(result);
-			//     });
-	document.getElementById("f1").value = 'asdasd';	
-	document.getElementById('f1').innerHTML="here";
-}

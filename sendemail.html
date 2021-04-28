@@ -6,7 +6,9 @@
     <meta name="description" content="GameSpace">
     <meta name="keywords" content="Game">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <body onload="loaduser_forum()"> -->
+    <body onload="loademail_user()">
+    <!-- Favicon -->   
+
     <link href="img/favicon.ico" rel="shortcut icon"/>
 
     <!-- Google Fonts -->
@@ -25,7 +27,6 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 
-
     <script src="lib/axios/dist/axios.standalone.js"></script>
     <script src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
     <script src="lib/CryptoJS/rollups/sha256.js"></script>
@@ -37,17 +38,15 @@
     <script src="lib/apiGatewayCore/simpleHttpClient.js"></script>
     <script src="lib/apiGatewayCore/utils.js"></script>
     <script src="function.js"></script>
-	<!--[if lt IE 9]>
-	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
+
+
 
 </head>
 <body>
 	<!-- Page Preloder -->
-	<div id="preloder">
+<!-- 	<div id="preloder">
 		<div class="loader"></div>
-	</div>
+	</div> -->
 
 	<!-- Header section -->
     <header class="header-section">
@@ -57,7 +56,6 @@
                 <img src="img/logo.png" alt="">
             </a>
 
-
             <!-- responsive -->
             <div class="nav-switch">
                 <i class="fa fa-bars"></i>
@@ -65,11 +63,10 @@
             <!-- site menu -->
             <nav class="main-menu">
                 <ul>
-                    <li><a href="userpage.html">Home</a></li>
+					<li><a href="userpage.html">Home</a></li>
                     <li><a href="review.html">Games</a></li>
-                     
                     <li><a href="community.html">Forums</a></li>
-                    <li><a href="search.html">Search</a></li>
+                    <li><a href="search.html">Search</a></li>                   
                 </ul>
             </nav>
             <div class="searchcy-panel">
@@ -85,16 +82,14 @@
 	<!-- Header section end -->
 
 
-
-
-
 	<!-- Page info section -->
-	<section class="page-info-section set-bg" data-setbg="img/page-top-bg/4.jpg">
+	<section class="page-info-section set-bg" data-setbg="img/page-top-bg/5.jpg">
 		<div class="pi-content">
 			<div class="container">
 				<div class="row">
 					<div class="col-xl-5 col-lg-6 text-white">
-						<h2>Our Community</h2>
+						<h3>Contact Others</h3>
+						<!-- <p>  </p> -->
 					</div>
 				</div>
 			</div>
@@ -102,52 +97,72 @@
 	</section>
 	<!-- Page info section -->
 
-
-	<!-- Page section -->
-	<section class="page-section community-page set-bg" data-setbg="img/community-bg.jpg">
-		<div class="community-warp spad">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<h3 class="community-top-title">All Posts:</h3>
+	<section class="page-section spad contact-page">
+		<div class="container">
+		<!-- 	<div class="map" id="map-canvas"></div>
+ -->			<div class="row">
+				<div class="col-lg-4 mb-5 mb-lg-0">
+					<h4 class="comment-title">User Information</h4>
+					<!-- <p>Odio ultrices ut. Etiam ac erat ut enim maximus accumsan vel ac nisl. Duis feug iat bibendum orci, non elementum urna. Cras sit amet sapien aliquam.</p> -->
+					<div class="row">
+						<div class="col-md-9">
+							<ul class="contact-info-list">
+								<li><div class="cf-left">User Name:</div><div class="cf-right" id="User_Name"> No User Name</div></li>
+								<li><div class="cf-left">Phone:</div><div class="cf-right" id="Phone_num">No Phone Number</div></li>
+								<li><div class="cf-left"> E-mail:</div></li>
+									<!-- <div class="cf-right" id="E-mail">Need to be changed</div></li> -->
+								
+							</ul>
+						</div>
+						<ul id="E-mail"> </ul>
 					</div>
-					<div class="col-md-6 text-lg-right">
-						<form class="community-filter">
-							<label for="fdf5">Show</label>
-							<select id="fdf5">
-								<option value="#">Everything</option>
-								<option value="#">Everything</option>
-							</select>
+				</div>
+				<div class="col-lg-8">
+					<div class="contact-form-warp">
+						<h4 class="comment-title">Game Preference:</h4>
+						<form class="comment-form">
+							<div class="row">
+								<ul class="contact-info-list">
+								<li><div class="cf-left">Game Preference 1:</div><div class="cf-right" id="Game_Preference1">No Game Preference</div></li>
+									
+								</ul>	
+								<ul class="contact-info-list">
+									<li><div class="cf-left">Game Preference 2:</div><div class="cf-right" id="Game_Preference2">No Game Preference</div></li>
+								</ul>
+								<ul class="contact-info-list">
+									<li><div class="cf-left">Game Preference 3:</div>
+										<div class="cf-right" id="Game_Preference3">No Game Preference</div></li>
+								</ul>	
+								</div>
+							
 						</form>
 					</div>
 				</div>
-				<ul  class="community-post-list">
-					
-				</ul>
 			</div>
 		</div>
+		<!-- <div id = "div">
+        	<div class="cf-right" id="text"> 123</div>
+        </div> -->
 	</section>
 	<!-- Page section end -->
 
 
-	<!-- Footer top section -->
-	<section class="footer-top-section">
-		<div class="container">
-			<div class="footer-top-bg">
-				<img src="img/gs_icon.png" alt=""  height="250" width="250" style="margin-bottom: 50px;margin-left: 430px;">
+	<!-- Footer top section -->		<!-- Footer top section -->
+		<section class="footer-top-section">
+			<div class="container">
+				<div class="footer-top-bg">
+					<img src="img/gs_icon.png" alt=""  height="250" width="250" style="margin-bottom: 50px;margin-left: 430px;">
+				</div>
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="footer-logo text-white">
+							<img src="img/gs-logo.png" alt="">
+						</div>
+				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-4">
-					<div class="footer-logo text-white">
-						<img src="img/gs-logo.png" alt="">
-					</div>
-			</div>
-		</div>
-	</section>
+		</section>
+		<!-- Footer top section end -->
 
-	<div id = "f1" >
-	</div>
-	<!-- Footer top section end -->
 
 	
 	<!-- Footer section -->
@@ -156,10 +171,10 @@
 			<ul class="footer-menu">
 				<li><a href="userpage.html">Home</a></li>
 				<li><a href="review.html">Games</a></li>
-				 
 				<li><a href="community.html">Forums</a></li>
 				<li><a href="search.html">Search</a></li>
 			</ul>
+
 		</div>
 	</footer>
 	<!-- Footer section end -->
@@ -172,52 +187,71 @@
 	<script src="js/jquery.marquee.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="apigClient.js"></script>
-	<script>
-		
+	<script>	
 
-		function showtext2(res){
-			// var newDiv = document.getElementById("text");
-			console.log("@showtext, result is",res);
-			var result = JSON.parse(res);
-			console.log("@after parse",result);
+		function getParameterByName(name, url) {
+	        if (!url) url = window.location.href;
+	        name = name.replace(/[\[\]]/g, '\\$&');
+	        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+	            results = regex.exec(url);
+	        if (!results) return null;
+	        if (!results[2]) return '';
+	        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+	        // console.log("okayy  ",test)
+	    }
 
-			for (i=0; i<result.length; i++){
-				console.log("@for loop parse",result[i]);
-				var email = result[i].email;
-			    var name = result[i].username;
-			    var number = result[i].phone;
-				var subject = result[i].subject;
-			    var detail = result[i].detail;
-			    var time = result[i].time;
+		function loademail_user() {		
+	    	var getemail = getParameterByName('email');
+	    	console.log("@hereee",getemail);
+			var apigClient = apigClientFactory.newClient({apiKey: "hpUV56GBup3D38aMb236J89YtbiZvRqD5FsIkibC"});
+			var params = {
+				'email':getemail
+			};
+			var body = {'email':getemail};
+			var additionalParams = {headers: {'Content-Type':"application/json"},queryParams: {'email':getemail}};
+ 			console.log("@here");
 
-			    var insertlocation = document.getElementById('forumsection');
-
-				for (j=0; j<subject.length; j++){
-
-					var subject_temp = subject[j];
-					var detail_temp = detail[j];
-					var time_temp = time[j];
-					console.log("subject_temp",subject_temp)
-
-					var str = '<li >\
-								<div class="community-post">\
-									<div class="post-content">\
-										<h5 ">'+ subject_temp + '<span>'+ time_temp  +'</span></h5>\
-										<div class="post-date"> '+ name+ '</div>\
-										<p> <a href=email>' + email+ '</a></p>\
-										<p>'+ detail_temp + ' </p>\
-									</div>\
-								</div>\
-							</li>';
-					insertlocation.insertAdjacentHTML('beforeend', str);
-				}
-			}
-			// console.log("as",res[]);
-			
-			// console.log("subject",subject[0])
-
-			
+			apigClient.contactothersPost(params, body, additionalParams)
+			    .then(function (result) {
+			      console.log('@apigClient_contactothersGet success');
+			      console.log(result);
+			      showtext(result.data.body);
+			    }).catch(function (result) {
+			      console.log("failed...contactothersGet...");
+			      console.log(result);
+			    });
 		}
+
+		function showtext(res){
+			// var newDiv = document.getElementById("text");
+			// console.log("@showtext, result is",result);
+			var result = JSON.parse(res);
+			console.log("@showtext, result is",result);
+		    email = result.email;
+		    name = result.username;
+		    number = result.phone;
+		    game1 = result.game1;
+		    game2 = result.game2;
+		    game3 = result.game3;
+		    console.log("@gamep",game1);
+			
+			email2 = '<a href="mailto:'+email +'">' + email + '</a>'
+
+			// document.getElementById("E-mail").innerHTML=email2;
+			document.getElementById("Phone_num").innerHTML=number;
+			document.getElementById("User_Name").innerHTML=name;
+			document.getElementById("Game_Preference1").innerHTML=game1;
+			document.getElementById("Game_Preference2").innerHTML=game2;
+			document.getElementById("Game_Preference3").innerHTML=game3;
+			var insertlocation = document.getElementById('E-mail');
+			insertlocation.insertAdjacentHTML('beforeend', email2);
+			// console.log("as",res[]);
+		}
+
+
+
+
+				
 	</script>
     </body>
 </html>

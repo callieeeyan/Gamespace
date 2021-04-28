@@ -232,13 +232,16 @@
 				var subject = result[i].subject;
 			    var detail = result[i].detail;
 			    var time = result[i].time;
+
+
+			    var email123 = result[i].email;
 			    console.log("email i",email);
 		    	var str = '<li >\
 					<div class="community-post">\
 						<div class="post-content">\
 							<h5 ">'+ subject + '<span>'+ time  +'</span></h5>\
 							<div class="post-date"> '+ name+ '</div>\
-							<p> <a href="sendemail.html" onclick="sendemail()">' + email+ '</a></p>\
+							<p> <a href="sendemail.html?email='+email+'">' + email+ '</a></p>\
 							<p>'+ detail + ' </p>\
 						</div>\
 					</div>\
@@ -276,8 +279,8 @@
 									<div class="post-content">\
 										<h5 ">'+ subject_temp + '<span>'+ time_temp  +'</span></h5>\
 										<div class="post-date"> '+ name+ '</div>\
-										<p> <a href="sendemail.html" onclick="sendemail()">' + email+ '</a></p>\
-										<p>'+ detail_temp + ' </p>\
+										<p> <a href="sendemail.html?email='+email+'">' + email+ '</a></p>\
+										<p>'+ detail_temp  +' </p>\
 									</div>\
 								</div>\
 							</li>';
